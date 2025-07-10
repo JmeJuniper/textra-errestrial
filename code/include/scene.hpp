@@ -35,12 +35,10 @@
     #include "globals.hpp"
     #include <SFML/Graphics.hpp>
     #include <functional>
-
-    using namespace std;
     
     // Types for the defined functions
-    using InputHandler = function<void(globals&, sf::RenderWindow&, sf::Event)>;
-    using Renderer = function<void(globals&, sf::RenderWindow&)>;
+    using InputHandler = std::function<void(globals&, sf::RenderWindow&, sf::Event)>;
+    using Renderer = std::function<void(globals&, sf::RenderWindow&)>;
     
     // Define the scene class
     class Scene

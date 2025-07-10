@@ -8,12 +8,10 @@
     #define DATATYPE_H
     
     #include <string>
-    
-    using namespace std;
 
     // Struct to store global data
     struct globals {
-        string curScene;
+        std::string curScene;
     };
 
 #endif
