@@ -8,15 +8,12 @@
     #define DATATYPE_H
     
     #include <string>
-    #include <variant>
-    #include <unordered_map>
-    #include <SFML/Graphics.hpp>
+    
+    using namespace std;
 
-    // Alias to store global data
-    using dataType = std::unordered_map<
-        std::string, std::variant<
-            std::string
-        >
-    >;
+    // Struct to store global data
+    struct globals {
+        string curScene;
+    };
 
 #endif

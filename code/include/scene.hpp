@@ -32,15 +32,15 @@
 #ifndef SCENE_H
     #define SCENE_H
     
-    #include "dataType.hpp"
+    #include "globals.hpp"
     #include <SFML/Graphics.hpp>
     #include <functional>
 
     using namespace std;
     
     // Types for the defined functions
-    using InputHandler = function<void(dataType&, sf::RenderWindow&, sf::Event)>;
-    using Renderer = function<void(dataType&, sf::RenderWindow&)>;
+    using InputHandler = function<void(globals&, sf::RenderWindow&, sf::Event)>;
+    using Renderer = function<void(globals&, sf::RenderWindow&)>;
     
     // Define the scene class
     class Scene
@@ -50,8 +50,8 @@
         // Assign functions
         Scene
         (
-            InputHandler ih = [](dataType& data, sf::RenderWindow &window, sf::Event event){},
-            Renderer r = [](dataType& data, sf::RenderWindow &window){}
+            InputHandler ih = [](globals& data, sf::RenderWindow &window, sf::Event event){},
+            Renderer r = [](globals& data, sf::RenderWindow &window){}
         )
         {
             handleInput = ih;

@@ -6,20 +6,20 @@
 ******************************************************************************/
 
 #include "scenes/menu.hpp"
-#include "dataType.hpp"
+#include "globals.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
 
 Scene menu(
     // Input Handler
-    [=](dataType &data, RenderWindow &window, Event event)
+    [](globals &data, RenderWindow &window, Event event)
     {
         
     },
     
     // Renderer
-    [=](dataType &data, RenderWindow &window)
+    [](globals &data, RenderWindow &window)
     {
     
     }

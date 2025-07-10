@@ -5,7 +5,7 @@
 ******************************************************************************/
 
 // Helper headers
-#include "dataType.hpp"
+#include "globals.hpp"
 
 // Game scenes
 #include "scenes/menu.hpp"
@@ -21,15 +21,6 @@
 using namespace std;
 using namespace sf;
 
-// Function to retrieve the current scene
-Scene getCurScene(unordered_map<string, Scene> &scenes, dataType &data) {
-    // 1. Retrieve the "curScene" from data as a string (data uses a variant class to store values)
-    // 2. Use the current scene to index scenes for a referenceWrapper pointing to the proper scene
-    // 3. Get the original object from the referenceWrapper
-    // 4. Return the value
-    return scenes[get<string>(data["curScene"])];
-};
-
 int main()
 {
     // Store links to the functions in each scene
@@ -39,8 +30,8 @@ int main()
     };
     
     // Store global data
-    dataType data = {
-        {"curScene", "menu"}
+    globals data {
+        .curScene = "menu"
     };
     
     // Create window
@@ -66,12 +57,12 @@ int main()
             // Otherwise, send it to the current scene
             else if (event.has_value())
             {
-                getCurScene(scenes, data).handleInput(data, window, event.value());
+                scenes[data.curScene].handleInput(data, window, event.value());
             }
         }
         
         window.clear();
-        getCurScene(scenes, data).render(data, window);
+        scenes[data.curScene].render(data, window);
         window.display();
     }
 }
