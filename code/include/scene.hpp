@@ -38,7 +38,7 @@
     
     // Types for the defined functions
     using InputHandler = std::function<void(globals&, sf::RenderWindow&, sf::Event)>;
-    using Renderer = std::function<void(globals&, sf::RenderWindow&)>;
+    using Misc = std::function<void(globals&, sf::RenderWindow&)>;
     
     // Define the scene class
     class Scene
@@ -48,17 +48,28 @@
         // Assign functions
         Scene
         (
-            InputHandler ih = [](globals& data, sf::RenderWindow &window, sf::Event event){},
-            Renderer r = [](globals& data, sf::RenderWindow &window){}
+            // Input handler
+            InputHandler ih = [](globals& data, sf::RenderWindow& window, sf::Event event){},
+
+            // Scene enter
+            Misc s = [](globals& data, sf::RenderWindow& window){},
+
+            // Renderer
+            Misc r = [](globals& data, sf::RenderWindow& window){},
+
+            // Scene exit
+            Misc e = [](globals& data, sf::RenderWindow& window){}
         )
         {
             handleInput = ih;
+            start = s;
             render = r;
+            end = e;
         };
         
         // Empty functions, to be overwritten per instance
         InputHandler handleInput;
-        Renderer render;
+        Misc render, start, end;
     };
 
 #endif

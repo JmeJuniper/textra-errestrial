@@ -8,7 +8,7 @@
 #ifndef MENU_H
     #define MENU_H
     
-    #include "scene.hpp"
+    #include "Scene.hpp"
     
     extern Scene menu;
 

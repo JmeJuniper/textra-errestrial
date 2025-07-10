@@ -18,7 +18,19 @@ Scene menu(
         
     },
     
+    // Scene enter
+    [](globals &data, RenderWindow &window)
+    {
+    
+    },
+    
     // Renderer
+    [](globals &data, RenderWindow &window)
+    {
+    
+    },
+    
+    // Scene exit
     [](globals &data, RenderWindow &window)
     {
     
