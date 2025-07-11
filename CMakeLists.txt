@@ -17,7 +17,19 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SFML)
 
-add_executable(${PROJECT_NAME} main.cpp code/scenes/menu.cpp)
+add_executable(${PROJECT_NAME}
+    # Main file
+    main.cpp
+    
+    # Scenes
+    code/scenes/menu.cpp
+    code/scenes/game.cpp
+)
+file(COPY
+    assets
+    DESTINATION
+    ${CMAKE_CURRENT_BINARY_DIR}/bin
+)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/code/include)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)

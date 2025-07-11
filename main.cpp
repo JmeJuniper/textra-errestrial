@@ -6,9 +6,11 @@
 
 // Helper headers
 #include "globals.hpp"
+#include "fonts.hpp" // Preload fonts
 
 // Game scenes
 #include "scenes/menu.hpp"
+#include "scenes/game.hpp"
 
 // SFML headers
 #include <SFML/Graphics.hpp>
@@ -26,7 +28,8 @@ int main()
     // Store links to the functions in each scene
     unordered_map<string, Scene>
     scenes = {
-        {"menu", menu}
+        {"menu", menu},
+        {"game", game}
     };
     
     // Store global data
