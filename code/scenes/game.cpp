@@ -2,7 +2,7 @@
  * game.cpp
  * Source file for game.hpp
  * Represents the main game scene
- * Impliments the handleInput and render functions of the game scene
+ * Impliments the handleInput, start, render, and end functions of the game scene
 ******************************************************************************/
 
 #include "scenes/game.hpp"

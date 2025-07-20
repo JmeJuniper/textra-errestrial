@@ -11,6 +11,7 @@
 // Game scenes
 #include "scenes/menu.hpp"
 #include "scenes/game.hpp"
+#include "scenes/credits.hpp"
 
 // SFML headers
 #include <SFML/Graphics.hpp>
@@ -28,7 +29,7 @@ int main()
     // Store links to the functions in each scene
     unordered_map<string, Scene> scenes = {
         {"menu", menu},
-        {"credits", menu},
+        {"credits", credits},
         {"game", game}
     };
     

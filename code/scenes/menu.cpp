@@ -2,7 +2,7 @@
  * menu.cpp
  * Source file for menu.hpp
  * Represents the main menu presented at the start of the game
- * Impliments the handleInput and render functions of the menu scene
+ * Impliments the handleInput, start, render, and end functions of the menu scene
 ******************************************************************************/
 
 #include "globals.hpp"
@@ -14,10 +14,10 @@
 #include <exception>
 #include <vector>
 #include <optional>
-#include <iostream>
 
 using namespace sf;
 
+// Keep file variables isolated to this file
 namespace {
     Texture menuImage("assets\\images\\menu_background.png");
     Sprite background(menuImage);
@@ -107,7 +107,7 @@ Scene menu(
         
         window.draw(background);
         window.draw(title);
-
+        
         // Draw buttons
         for (MenuItem btn: menuBtns) {
             // Mouseover effect
