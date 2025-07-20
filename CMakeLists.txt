@@ -24,6 +24,9 @@ add_executable(${PROJECT_NAME}
     # Scenes
     code/scenes/menu.cpp
     code/scenes/game.cpp
+
+    # Helper functions
+    code/menu/MenuItem.cpp
 )
 file(COPY
     assets
@@ -32,6 +35,6 @@ file(COPY
 )
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/code/include)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics)
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Window)

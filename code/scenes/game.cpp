@@ -33,7 +33,7 @@ Scene game(
         Vector2 labelSize = label.getLocalBounds().size;
 
         // Center label
-        label.setPosition({320 - labelSize.x/2, 320 - labelSize.y/2}); 
+        label.setPosition({data.windowSize.x - labelSize.x/2, data.windowSize.y - labelSize.y/2}); 
         
         window.draw(label);
     },

@@ -5,33 +5,123 @@
  * Impliments the handleInput and render functions of the menu scene
 ******************************************************************************/
 
-#include "scenes/menu.hpp"
 #include "globals.hpp"
+#include "fonts.hpp"
+#include "scenes/menu.hpp"
+#include "menu/MenuItem.hpp"
 #include <SFML/Graphics.hpp>
+#include <string>
+#include <exception>
+#include <vector>
+#include <optional>
+#include <iostream>
 
 using namespace sf;
 
+namespace {
+    Texture menuImage("assets\\images\\menu_background.png");
+    Sprite background(menuImage);
+    Text title(TEKTUR, "Textra Errestrial");
+    std::vector<MenuItem> menuBtns;
+}
+
 Scene menu(
     // Input Handler
-    [](globals &data, RenderWindow &window, Event event)
+    [](globals& data, RenderWindow& window, const Event& event)
     {
-        
+        // Handle mouse press
+        if (const auto* btnEvent = event.getIf<sf::Event::MouseButtonPressed>()) {
+            
+            // Loop through each menu button
+            for (MenuItem btn: menuBtns) {
+                
+                // If it's clicked, run the callback function attached
+                if (
+                    btn.box.getGlobalBounds().contains(
+                        static_cast<Vector2f>(
+                            btnEvent -> position
+                        )
+                    )
+                )
+                    btn.callback(data, window);
+            }
+        }
     },
     
     // Scene enter
-    [](globals &data, RenderWindow &window)
+    [](globals& data, RenderWindow& window)
     {
-    
+        // Sets the menuImage sprite to the same size as the screen
+        background.setScale({
+            data.windowSize.x / static_cast<float>(menuImage.getSize().x),
+            data.windowSize.y / static_cast<float>(menuImage.getSize().y)
+        });
+
+        // And make it a bit transparent
+        background.setColor(Color(255, 255, 255, 100));
+
+        // Create title
+        title.setCharacterSize(40);
+        title.setFillColor(sf::Color::White);
+        title.setOutlineColor(sf::Color::Black);
+        title.setOutlineThickness(2);
+        title.setStyle(sf::Text::Bold);
+        title.setPosition({90, 100});
+        
+        // Create menu buttons
+        menuBtns = {
+            MenuItem(
+                "Play",
+                220, 200,
+                TEKTUR,
+                [](globals &data, RenderWindow &window)
+                {
+                    data.curScene = "game";
+                }
+            ),
+            MenuItem(
+                "Credits",
+                220, 280,
+                TEKTUR,
+                [](globals &data, RenderWindow &window)
+                {
+                    data.curScene = "credits";
+                }
+            ),
+            MenuItem(
+                "Exit",
+                220, 360,
+                TEKTUR,
+                [](globals &data, RenderWindow &window)
+                {
+                    window.close();
+                }
+            )
+        };
     },
     
     // Renderer
-    [](globals &data, RenderWindow &window)
+    [](globals& data, RenderWindow& window)
     {
-    
+        auto mouse = static_cast<Vector2f>(Mouse::getPosition(window));
+        
+        window.draw(background);
+        window.draw(title);
+
+        // Draw buttons
+        for (MenuItem btn: menuBtns) {
+            // Mouseover effect
+            if (btn.box.getGlobalBounds().contains(mouse))
+                btn.box.setFillColor(Color(100, 100, 100));
+            else
+                btn.box.setFillColor(Color(70, 70, 70));
+            window.draw(btn.box);
+            window.draw(btn.label);
+        }
     },
     
     // Scene exit
-    [](globals &data, RenderWindow &window)
+    [](globals& data, RenderWindow& window)
     {
     
     }

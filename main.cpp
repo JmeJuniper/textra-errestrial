@@ -26,20 +26,23 @@ using namespace sf;
 int main()
 {
     // Store links to the functions in each scene
-    unordered_map<string, Scene>
-    scenes = {
+    unordered_map<string, Scene> scenes = {
         {"menu", menu},
+        {"credits", menu},
         {"game", game}
     };
     
     // Store global data
     globals data {
-        .curScene = "menu"
+        .curScene = "menu",
+        .windowSize = {640, 640}
     };
     
+    string activeScene = "";
+
     // Create window
     RenderWindow window(
-        VideoMode({640, 640}),          // Window resolution
+        VideoMode(data.windowSize),     // Window resolution
         "Textra Errestrial",            // Window title
         Style::Titlebar | Style::Close  // Window features
     );
@@ -48,6 +51,14 @@ int main()
     // Main window loop
     while (window.isOpen())
     {
+        // If we've switched scenes, call the appropriate functions
+        if (data.curScene != activeScene)
+        {
+            scenes[activeScene].end(data, window);
+            activeScene = data.curScene;
+            scenes[activeScene].start(data, window);
+        }
+
         // Loop through each event
         while (const optional event = window.pollEvent())
         {
@@ -58,14 +69,11 @@ int main()
             }
             
             // Otherwise, send it to the current scene
-            else if (event.has_value())
-            {
-                scenes[data.curScene].handleInput(data, window, event.value());
-            }
+            scenes[activeScene].handleInput(data, window, *event);
         }
         
         window.clear();
-        scenes[data.curScene].render(data, window);
+        scenes[activeScene].render(data, window);
         window.display();
     }
 }

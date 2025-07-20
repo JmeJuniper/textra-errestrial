@@ -8,10 +8,12 @@
     #define DATATYPE_H
     
     #include <string>
-
+    #include <SFML/Graphics.hpp>
+    
     // Struct to store global data
     struct globals {
         std::string curScene;
+        sf::Vector2u windowSize;
     };
 
 #endif

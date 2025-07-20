@@ -35,9 +35,10 @@
     #include "globals.hpp"
     #include <SFML/Graphics.hpp>
     #include <functional>
+    #include <optional>
     
     // Types for the defined functions
-    using InputHandler = std::function<void(globals&, sf::RenderWindow&, sf::Event)>;
+    using InputHandler = std::function<void(globals&, sf::RenderWindow&, const sf::Event&)>;
     using Misc = std::function<void(globals&, sf::RenderWindow&)>;
     
     // Define the scene class
@@ -49,7 +50,7 @@
         Scene
         (
             // Input handler
-            InputHandler ih = [](globals& data, sf::RenderWindow& window, sf::Event event){},
+            InputHandler ih = [](globals& data, sf::RenderWindow& window, const sf::Event& event){},
 
             // Scene enter
             Misc s = [](globals& data, sf::RenderWindow& window){},
@@ -59,13 +60,7 @@
 
             // Scene exit
             Misc e = [](globals& data, sf::RenderWindow& window){}
-        )
-        {
-            handleInput = ih;
-            start = s;
-            render = r;
-            end = e;
-        };
+        ): handleInput(ih), start(s), render(r), end(e) {};
         
         // Empty functions, to be overwritten per instance
         InputHandler handleInput;
