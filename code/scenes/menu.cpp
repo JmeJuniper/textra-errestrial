@@ -66,7 +66,7 @@ Scene menu(
         title.setOutlineColor(sf::Color::Black);
         title.setOutlineThickness(2);
         title.setStyle(sf::Text::Bold);
-        title.setPosition({90, 100});
+        title.setPosition({130, 100});
         
         // Create menu buttons
         menuBtns = {
