@@ -5,7 +5,7 @@
  * Impliments the handleInput, start, render, and end functions of the credits scene
 ******************************************************************************/
 
-#include "scenes/game.hpp"
+#include "scenes/credits.hpp"
 #include "menu/MenuItem.hpp"
 #include "globals.hpp"
 #include "fonts.hpp"
