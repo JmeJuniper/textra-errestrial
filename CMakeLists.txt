@@ -25,6 +25,7 @@ add_executable(${PROJECT_NAME}
     code/scenes/menu.cpp
     code/scenes/credits.cpp
     code/scenes/game.cpp
+    code/scenes/congrats.cpp
     
     # Helper functions
     code/menu/MenuItem.cpp

@@ -12,6 +12,7 @@
 #include "scenes/menu.hpp"
 #include "scenes/game.hpp"
 #include "scenes/credits.hpp"
+#include "scenes/congrats.hpp"
 
 // SFML headers
 #include <SFML/Graphics.hpp>
@@ -30,13 +31,15 @@ int main()
     unordered_map<string, Scene> scenes = {
         {"menu", menu},
         {"credits", credits},
-        {"game", game}
+        {"game", game},
+        {"congrats", congrats}
     };
     
     // Store global data
     globals data {
         .curScene = "menu",
-        .windowSize = {640, 640}
+        .windowSize = {640, 640},
+        .gridSize = 32
     };
     
     string activeScene = "";
