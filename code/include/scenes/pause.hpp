@@ -10,6 +10,6 @@
     
     #include "Scene.hpp"
     
-    extern Scene congrats;
+    extern Scene pause;
 
 #endif

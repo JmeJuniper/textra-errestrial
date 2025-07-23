@@ -26,6 +26,7 @@ add_executable(${PROJECT_NAME}
     code/scenes/credits.cpp
     code/scenes/game.cpp
     code/scenes/congrats.cpp
+    code/scenes/pause.cpp
 
     # Tilemap & Object handling
     code/game/Map.cpp

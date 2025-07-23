@@ -13,6 +13,7 @@
 #include "scenes/game.hpp"
 #include "scenes/credits.hpp"
 #include "scenes/congrats.hpp"
+#include "scenes/pause.hpp"
 
 // SFML headers
 #include <SFML/Graphics.hpp>
@@ -33,7 +34,7 @@ int main()
         {"credits", credits},
         {"game", game},
         {"congrats", congrats},
-        // fix me please{"controls", pause} not sure how to add this correctly.
+        {"pause", pause}
     };
     
     // Store global data

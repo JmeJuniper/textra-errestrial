@@ -20,7 +20,7 @@ namespace {
     Sprite background(menuImage);
 
     Text pausedTitle(TEKTUR, "PAUSED");
-    Text introLine(TEKTUR, "FIXME WHEN WE GET AN INTRO WRITTEN");  // Editable intro FIXMEEEEE
+    Text introLine(TEKTUR, "FIXME WHEN WE GET AN INTRO WRITTEN");  // TODO:
     Text controlsTitle(TEKTUR, "CONTROLS:");
     Text controlMove(TEKTUR, "Arrow Keys - Move Around");
     Text controlInteract(TEKTUR, "Spacebar - Interact with Objects");
