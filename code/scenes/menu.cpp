@@ -72,7 +72,7 @@ Scene menu(
         menuBtns = {
             MenuItem(
                 "Play",
-                220, 200,
+                120, 200,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
@@ -81,16 +81,28 @@ Scene menu(
             ),
             MenuItem(
                 "Credits",
-                220, 280,
+                120, 350,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
                     data.curScene = "credits";
                 }
             ),
+
+            MenuItem(
+                "Controls",
+                380, 200,
+                TEKTUR,
+                [](globals &data, RenderWindow &window)
+                {
+                    data.curScene = "pause"; //pause menu has controls
+                }
+            ),
+
+
             MenuItem(
                 "Exit",
-                220, 360,
+                380, 350,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
