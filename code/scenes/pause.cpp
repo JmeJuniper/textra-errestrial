@@ -59,8 +59,8 @@ Scene pause(
                 )
             )
                 quitBtn.callback(data, window);
-        },
-    }
+        }
+    },
 
     // Scene enter
     [](globals& data, RenderWindow& window)
