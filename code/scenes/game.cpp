@@ -27,13 +27,13 @@ Scene game(
     // Scene enter
     [](globals &data, RenderWindow &window)
     {
-        map.loadTilemap(20, 20, "data/levels/10.txt");
+        map.loadTilemap(10, 10, "data/levels/10.txt");
     },
     
     // Renderer
     [](globals &data, RenderWindow &window)
     {
-        map.draw(window, 32);
+        map.draw(window, 64);
     },
     
     // Scene exit
