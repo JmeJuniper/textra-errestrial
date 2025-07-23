@@ -72,7 +72,7 @@ Scene menu(
         menuBtns = {
             MenuItem(
                 "Play",
-                120, 200,
+                100, 250,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
@@ -81,7 +81,7 @@ Scene menu(
             ),
             MenuItem(
                 "Credits",
-                120, 350,
+                100, 400,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
@@ -91,7 +91,7 @@ Scene menu(
 
             MenuItem(
                 "Controls",
-                380, 200,
+                380, 250,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
@@ -102,7 +102,7 @@ Scene menu(
 
             MenuItem(
                 "Exit",
-                380, 350,
+                380, 400,
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
