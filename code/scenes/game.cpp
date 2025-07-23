@@ -6,11 +6,16 @@
 ******************************************************************************/
 
 #include "scenes/game.hpp"
+#include "game/Map.hpp"
 #include "globals.hpp"
 #include "fonts.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
+
+namespace {
+    Map map;
+}
 
 Scene game(
     // Input Handler
@@ -22,20 +27,13 @@ Scene game(
     // Scene enter
     [](globals &data, RenderWindow &window)
     {
-
+        map.loadTilemap(20, 20, "data/levels/10.txt");
     },
     
     // Renderer
     [](globals &data, RenderWindow &window)
     {
-        // Create text label and get its size
-        Text label(TEKTUR, "Game Scene", 30);
-        Vector2 labelSize = label.getLocalBounds().size;
-
-        // Center label
-        label.setPosition({data.windowSize.x - labelSize.x/2, data.windowSize.y - labelSize.y/2}); 
-        
-        window.draw(label);
+        map.draw(window, 32);
     },
     
     // Scene exit

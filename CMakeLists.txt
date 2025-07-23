@@ -26,12 +26,18 @@ add_executable(${PROJECT_NAME}
     code/scenes/credits.cpp
     code/scenes/game.cpp
     code/scenes/congrats.cpp
+
+    # Tilemap & Object handling
+    code/game/Map.cpp
+    code/game/objects/Object.cpp
     
-    # Helper functions
+    # Helper classes & functions
     code/menu/MenuItem.cpp
+    code/game/tilemapFuncs.cpp
 )
 file(COPY
     assets
+    data
     DESTINATION
     ${CMAKE_CURRENT_BINARY_DIR}/bin
 )
