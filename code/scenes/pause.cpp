@@ -11,6 +11,7 @@
 #include "fonts.hpp"
 #include <SFML/Graphics.hpp>
 
+
 using namespace sf;
 
 // Keep file variables isolated to this file

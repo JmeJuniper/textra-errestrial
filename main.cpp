@@ -32,7 +32,8 @@ int main()
         {"menu", menu},
         {"credits", credits},
         {"game", game},
-        {"congrats", congrats}
+        {"congrats", congrats},
+        // fix me please{"controls", pause} not sure how to add this correctly.
     };
     
     // Store global data
