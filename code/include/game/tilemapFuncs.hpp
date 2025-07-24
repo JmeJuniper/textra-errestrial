@@ -10,5 +10,5 @@
     #include <unordered_map>
     #include <string>
     
-    extern std::unordered_map<char, std::string> cttl;
+    extern std::unordered_map<char, std::pair<std::string, char>> cttl;
 #endif

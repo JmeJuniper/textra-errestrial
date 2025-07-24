@@ -6,22 +6,22 @@
 
 #include "game/tilemapFuncs.hpp"
 
-std::unordered_map<char, std::string> cttl = {
+std::unordered_map<char, std::pair<std::string, char>> cttl = {
 	// Walls
-	{'/', "wall_0_0.png"},
-	{'-', "wall_1_0.png"},
-	{'\\', "wall_2_0.png"},
-	{'[', "wall_0_1.png"},
-	{'X', "wall_1_1.png"},
-	{']', "wall_2_1.png"},
-	{'L', "wall_0_2.png"},
-	{'_', "wall_1_2.png"},
-	{'!', "wall_2_2.png"},
-	{'.', "corner_0_1.png"},
-	{',', "corner_1_1.png"},
-	{'=', "console.png"},
+	{'/', {"wall_0_0.png", 'W'}},
+	{'-', {"wall_1_0.png", 'W'}},
+	{'\\', {"wall_2_0.png", 'W'}},
+	{'[', {"wall_0_1.png", 'W'}},
+	{'X', {"wall_1_1.png", 'W'}},
+	{']', {"wall_2_1.png", 'W'}},
+	{'L', {"wall_0_2.png", 'W'}},
+	{'_', {"wall_1_2.png", 'W'}},
+	{'!', {"wall_2_2.png", 'W'}},
+	{'.', {"corner_0_1.png", 'W'}},
+	{',', {"corner_1_1.png", 'W'}},
+	{'=', {"console.png", 'W'}},
 	
 	// Floors
-	{' ', "tile.png"},
-	{'o', "button.png"}
+	{' ', {"tile.png", 'F'}},
+	{'o', {"button.png", 'F'}}
 };

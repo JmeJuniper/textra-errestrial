@@ -31,6 +31,7 @@ add_executable(${PROJECT_NAME}
     # Tilemap & Object handling
     code/game/Map.cpp
     code/game/objects/Object.cpp
+    code/game/objects/Player.cpp
     
     # Helper classes & functions
     code/menu/MenuItem.cpp

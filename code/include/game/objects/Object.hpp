@@ -39,7 +39,7 @@
 
 		void draw(sf::RenderWindow& window, size_t x, size_t y, unsigned int tileSize);
 		
-		private:
+		protected:
 		// Reference to parent Map
 		Map* map;
 		
