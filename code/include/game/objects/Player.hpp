@@ -21,5 +21,7 @@
         
         // tryMove overriden for Players
         bool tryMove(sf::Vector2i diff) override;
+        
+        bool offMap = false;
     };
 #endif

@@ -41,7 +41,8 @@ int main()
     globals data {
         .curScene = "menu",
         .windowSize = {640, 640},
-        .gridSize = 32
+        .gridSize = {10, 10},
+        .tileSize = 64
     };
     
     string activeScene = "";

@@ -24,6 +24,7 @@ bool Player::tryMove(sf::Vector2i diff)
         // IF the player is being moved off-screen:
         // Don't actually move the player in the tilemap, but change their position in-class
         pos = newPos;
+        offMap = true;
         return true;
     }
     

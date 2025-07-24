@@ -14,7 +14,8 @@
     struct globals {
         std::string curScene;
         sf::Vector2u windowSize;
-        int gridSize;
+        sf::Vector2i gridSize;
+        int tileSize;
     };
 
 #endif
