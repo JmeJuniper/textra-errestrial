@@ -11,5 +11,6 @@
     #include <fstream>
     
     const sf::Font TEKTUR("./assets/fonts/Tektur-Regular.ttf");
+    const sf::Font GLYPHS("./assets/fonts/TextraErrestrialGlyphs.otf");
 
 #endif
