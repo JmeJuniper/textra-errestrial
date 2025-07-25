@@ -66,6 +66,8 @@ void Map::loadTilemap(size_t width, size_t height, std::string filePath)
         }
         y++;
     }
+
+    tlmpReader.close();
 }
 
 

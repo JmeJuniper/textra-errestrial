@@ -14,6 +14,7 @@
     #include "game/objects/Object.hpp"
     #include "game/objects/Player.hpp"
     #include "game/objects/Console.hpp"
+    #include "game/objects/Box.hpp"
     
     class Map {
         public:

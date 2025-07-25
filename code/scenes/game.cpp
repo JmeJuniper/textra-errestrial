@@ -14,6 +14,7 @@
 #include "game/Map.hpp"
 #include "game/objects/Player.hpp"
 #include "game/objects/Console.hpp"
+#include "game/objects/Box.hpp"
 
 using namespace sf;
 
@@ -82,6 +83,15 @@ void switchMap(globals &data) {
 		newConsole -> img = "assets/images/consoles/" + img;
 		consoles.push_back(std::move(newConsole));
 	}
+
+	consoleReader.close();
+	
+	// Place boxes per boxes.txt
+	std::ifstream boxReader(dataLoc + "boxes.txt");
+	while (boxReader >> x >> y)
+		map.place<Box>(x, y, "box.png");
+	
+	boxReader.close();
 }
 
 Scene game(

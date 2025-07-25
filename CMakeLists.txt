@@ -33,6 +33,7 @@ add_executable(${PROJECT_NAME}
 	code/game/Map.cpp
 	code/game/objects/Object.cpp
 	code/game/objects/Player.cpp
+	code/game/objects/Box.cpp
 	code/game/objects/Console.cpp
 	
 	# Helper classes & functions
