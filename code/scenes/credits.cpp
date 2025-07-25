@@ -27,7 +27,8 @@ namespace {
     Text thirdPartyBody(TEKTUR,
         "- Tektur Font by Google Fonts\n"
         "- SFML Library\n"
-        "- FIX ME FOR THIRD PARTY TILES" // TODO: add third party tiles
+        "- Tileset by knekko and Ansimuz on OpenGameArt\n"
+        "- Character spritesheet by Kenney\n"
     );
     MenuItem backBtn(
         "Back to Menu",
