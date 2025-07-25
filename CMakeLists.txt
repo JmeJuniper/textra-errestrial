@@ -25,6 +25,7 @@ add_executable(${PROJECT_NAME}
 	code/scenes/menu.cpp
 	code/scenes/credits.cpp
 	code/scenes/game.cpp
+	code/scenes/console.cpp
 	code/scenes/congrats.cpp
 	code/scenes/pause.cpp
 
@@ -32,6 +33,7 @@ add_executable(${PROJECT_NAME}
 	code/game/Map.cpp
 	code/game/objects/Object.cpp
 	code/game/objects/Player.cpp
+	code/game/objects/Console.cpp
 	
 	# Helper classes & functions
 	code/menu/MenuItem.cpp

@@ -69,21 +69,6 @@ void Map::loadTilemap(size_t width, size_t height, std::string filePath)
 }
 
 
-std::shared_ptr<Object> Map::placePlayer(size_t x, size_t y)
-{
-    // Create a player object and a pointer to it
-    std::shared_ptr<Object> playerPtr = std::make_shared<Player>(
-        "box.png",
-        sf::Vector2i{static_cast<int>(x), static_cast<int>(y)},
-        this
-    );
-    
-    // Insert it to the proper positions, and return it
-    tlmp[x][y].push_back(playerPtr);
-    return playerPtr;
-}
-
-
 // Disable "no return type" warning.
 // The code will already throw an error if no return can be given and there
 // is no reasonable default return that can be given in that event.

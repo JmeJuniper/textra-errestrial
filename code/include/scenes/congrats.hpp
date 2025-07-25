@@ -2,7 +2,7 @@
  * congrats.hpp
  * Header file for congrats.cpp
  * Represents the end menu
- * Instanciates a end Scene
+ * Instanciates a congrats Scene
 ******************************************************************************/
 
 #ifndef CONGRATS_H

@@ -12,6 +12,8 @@
     #include <memory>
     #include <SFML/Graphics.hpp>
     #include "game/objects/Object.hpp"
+    #include "game/objects/Player.hpp"
+    #include "game/objects/Console.hpp"
     
     class Map {
         public:
@@ -22,8 +24,21 @@
         // filePath          [string] - Path to the file to load the tilemap from
         void loadTilemap(size_t width, size_t height, std::string filePath);
 
-        // Places a player on the map
-        std::shared_ptr<Object> placePlayer(size_t x, size_t y);
+        // Places an object on the map
+        template <typename T>
+        std::shared_ptr<T> place(size_t x, size_t y, std::string spriteName)
+        {
+            // Create a player object and a pointer to it
+            std::shared_ptr<Object> playerPtr = std::make_shared<T>(
+                spriteName,
+                sf::Vector2i{static_cast<int>(x), static_cast<int>(y)},
+                this
+            );
+            
+            // Insert it to the proper positions, and return it
+            tlmp[x][y].push_back(playerPtr);
+            return std::static_pointer_cast<T>(playerPtr);
+        }
         
         // Returns a vector containing all objects on a tile
         // x           [unsigned int] - x position of the tile to retrieve;

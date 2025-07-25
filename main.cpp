@@ -11,6 +11,7 @@
 // Game scenes
 #include "scenes/menu.hpp"
 #include "scenes/game.hpp"
+#include "scenes/console.hpp"
 #include "scenes/credits.hpp"
 #include "scenes/congrats.hpp"
 #include "scenes/pause.hpp"
@@ -33,6 +34,7 @@ int main()
         {"menu", menu},
         {"credits", credits},
         {"game", game},
+        {"console", console},
         {"congrats", congrats},
         {"pause", pause}
     };

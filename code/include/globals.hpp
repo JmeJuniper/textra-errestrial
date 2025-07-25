@@ -16,6 +16,7 @@
         sf::Vector2u windowSize;
         sf::Vector2i gridSize;
         int tileSize;
+        std::string consoleImg;
     };
 
 #endif
