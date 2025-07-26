@@ -12,6 +12,7 @@
 #include "scenes/menu.hpp"
 #include "scenes/game.hpp"
 #include "scenes/console.hpp"
+#include "scenes/comms.hpp"
 #include "scenes/credits.hpp"
 #include "scenes/congrats.hpp"
 #include "scenes/pause.hpp"
@@ -35,6 +36,7 @@ int main()
         {"credits", credits},
         {"game", game},
         {"console", console},
+        {"comms", comms},
         {"congrats", congrats},
         {"pause", pause}
     };

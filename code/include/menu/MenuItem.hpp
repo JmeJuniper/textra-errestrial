@@ -33,13 +33,13 @@
     #include "globals.hpp"
     
     using callbackFun = std::function<void(globals&, sf::RenderWindow&)>;
-
+    
     struct MenuItem {
         sf::RectangleShape box;
         sf::Text label;
         callbackFun callback;
         
-        MenuItem(const std::string& text, float x, float y, const sf::Font& font, callbackFun onClick);
+        MenuItem(const std::string& text, float x, float y, const sf::Font& font, callbackFun onClick, bool small = false);
     };
 
 #endif

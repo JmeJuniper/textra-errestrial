@@ -13,20 +13,24 @@
 #include "scenes/game.hpp"
 #include "game/Map.hpp"
 #include "game/objects/Player.hpp"
-#include "game/objects/Console.hpp"
 #include "game/objects/Box.hpp"
+#include "game/objects/Console.hpp"
+#include "game/objects/Comms.hpp"
 
 using namespace sf;
 
 namespace {
 	// Store the entire tilemap
 	Map map;
-
+	
 	// A shared pointer to the player, to access its functions
 	std::shared_ptr<Player> player;
-
+	
 	// A vector of shared pointers to all consoles
 	std::vector<std::shared_ptr<Console>> consoles;
+	
+	// A vector of shared pointers to the communications console
+	std::vector<std::shared_ptr<Comms>> comms;
 
 	// The position of the current map being viewed.
 	sf::Vector2i curMapPos(1, 0);
@@ -83,7 +87,16 @@ void switchMap(globals &data) {
 		newConsole -> img = "assets/images/consoles/" + img;
 		consoles.push_back(std::move(newConsole));
 	}
-
+	
+	consoleReader.close();
+	
+	// Place comms per comms.txt
+	comms = {};
+	
+	std::ifstream commsReader(dataLoc + "comms.txt");
+	while (commsReader >> x >> y)
+		comms.push_back(map.place<Comms>(x, y, "console.png"));
+	
 	consoleReader.close();
 	
 	// Place boxes per boxes.txt
@@ -138,6 +151,17 @@ Scene game(
 					c -> interacted = false;
 					data.curScene = "console";
 					data.consoleImg = c -> img;
+					break;
+				}
+			}
+			
+			// Check if the player interacted with a comms terminal
+			for (auto c: comms)
+			{
+				if (c -> interacted)
+				{
+					c -> interacted = false;
+					data.curScene = "comms";
 					break;
 				}
 			}

@@ -19,7 +19,7 @@ namespace {
     Sprite background(menuImage);
 
     Text congratsLine1(TEKTUR, "CONGRATULATIONS ON");
-    Text congratsLine2(TEKTUR, "FINISHING OUR GAME");
+    Text congratsLine2(TEKTUR, "FINISHING OUR GAME\n(the aliens saved you)");
 
     MenuItem creditsBtn( // i think i did this right? tried copying the credits one
         "View Credits",
