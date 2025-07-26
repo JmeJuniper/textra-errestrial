@@ -7,26 +7,49 @@
  
  * * Scene.handleInput()
  * * * Parameters:
- * * * * data
- * * * * * Type - reference to dataType
- * * * * * Contains global game data
- * * * * event
- * * * * * Type - sf::Event
- * * * * * Contains event information
+ * * * * data [globals&]
+ * * * * * Mutable reference to global game data.
+ * * * * window [sf::RenderWindow&]
+ * * * * * Mutable reference to the window to render the scene to.
+ * * * * event [const sf::Event&]
+ * * * * * Immutable reference to the SFML event data.
  * * * Return:
  * * * * void
  * * * Description:
  * * * * Handles SFML input events
  
+ * * Scene.start()
+ * * * Parameters:
+ * * * * data [globals&]
+ * * * * * Mutable reference to global game data.
+ * * * * window [sf::RenderWindow&]
+ * * * * * Mutable reference to the window to render the scene to.
+ * * * Return:
+ * * * * void
+ * * * Description:
+ * * * * Run when the scene is switched to.
+ 
  * * Scene.render()
  * * * Parameters:
- * * * * data
- * * * * * Type - reference to dataType
- * * * * * Contains global game data
+ * * * * data [globals&]
+ * * * * * Mutable reference to global game data.
+ * * * * window [sf::RenderWindow&]
+ * * * * * Mutable reference to the window to render the scene to.
  * * * Return:
  * * * * void
  * * * Description:
  * * * * Handles the update loop and renders to the screen.
+ 
+ * * Scene.end()
+ * * * Parameters:
+ * * * * data [globals&]
+ * * * * * Mutable reference to global game data.
+ * * * * window [sf::RenderWindow&]
+ * * * * * Mutable reference to the window to render the scene to.
+ * * * Return:
+ * * * * void
+ * * * Description:
+ * * * * Run when the scene is switched away from.
 ******************************************************************************/
 
 #ifndef SCENE_H
@@ -51,7 +74,7 @@
         (
             // Input handler
             InputHandler ih = [](globals& data, sf::RenderWindow& window, const sf::Event& event){},
-
+            
             // Scene enter
             Misc s = [](globals& data, sf::RenderWindow& window){},
 

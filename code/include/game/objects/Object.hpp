@@ -6,8 +6,27 @@
  * Defines Object class:
  * * Constructor
  * * * Parameters
- * * * * spriteName [string]
- * * * * * The filename of the sprite to use.
+ * * * * spriteName [std::string]
+ * * * * * File name of sprite, including extension.
+ * * * * initPos [sf::Vector2i]
+ * * * * * Starting position.
+ * * * * mapLink [Map*]
+ * * * * * Pointer to the containing Map object.
+ * * pos [sf::Vector2i]
+ * * * Current position of the object.
+ * * tryMove
+ * * * Parameters
+ * * * * diff [sf::Vector2i]
+ * * * * * Direction to move in. I.e. {-1, 0} = move 1 to the left.
+ * * * Return [bool]
+ * * * * True if object successfully moved, false if not.
+ * * draw
+ * * * Parameters
+ * * * * window [sf::RenderWindow&]
+ * * * * * Reference to the window to draw the object on.
+ * * * * tileSize [unsigned int]
+ * * * * * Size, in pixels, of each tile (1:1 aspect ratio assumed)
+ * * * Return [void]
 ******************************************************************************/
 
 #ifndef OBJECT_H
@@ -20,10 +39,9 @@
 	class Object {
 		public:
 		// Constructor
-		// spriteName [string] - File name of sprite, including extension.
-		// initPos  [Vector2i] - Starting position
-		// mapLink      [Map&] - Reference to the containing Map object
-		// gridSize      [int] - Size of grid, in pixels
+		// spriteName  [std::string] - File name of sprite, including extension.
+		// initPos    [sf::Vector2i] - Starting position
+		// mapLink            [Map*] - Pointer to the containing Map object
 		Object(std::string spriteName, sf::Vector2i initPos, Map* mapLink);
 
 		// Destructor
@@ -31,13 +49,16 @@
 		
 		// Position of object
 		sf::Vector2i pos;
-
+		
 		// Attempts to move in a direction, returns a bool corresponding to success
-		// diff     [Vector2i] - Direction to move in. I.e. {-1, 0} = move 1 to the left.
-		// <-           [bool] - True if object successfully moved, false if not.
+		// diff           [Vector2i] - Direction to move in. I.e. {-1, 0} = move 1 to the left
+		// <-                 [bool] - True if object successfully moved, false if not
 		virtual bool tryMove(sf::Vector2i diff);
-
-		void draw(sf::RenderWindow& window, size_t x, size_t y, unsigned int tileSize);
+		
+		// Draws the sprite to the window
+		// window [sf::RenderWindow] - Window to draw the object to
+		// tileSize   [unsigned int] - Size of the tile, in pixels
+		void draw(sf::RenderWindow& window, unsigned int tileSize);
 		
 		protected:
 		// Reference to parent Map

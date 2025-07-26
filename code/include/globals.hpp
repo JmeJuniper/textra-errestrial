@@ -1,11 +1,11 @@
 /******************************************************************************
- * dataType.hpp
+ * globals.hpp
  * Solo header file
- * Defines "dataType" type alias for use in other files.
+ * Defines "globals" type alias for use in other files.
 ******************************************************************************/
 
-#ifndef DATATYPE_H
-    #define DATATYPE_H
+#ifndef GLOBALS_H
+    #define GLOBALS_H
     
     #include <string>
     #include <SFML/Graphics.hpp>

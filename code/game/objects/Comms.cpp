@@ -5,8 +5,6 @@
 ******************************************************************************/
 
 #include "game/objects/Comms.hpp"
-#include "game/Map.hpp"
-#include <iostream>
 
 bool Comms::tryMove(sf::Vector2i diff)
 {

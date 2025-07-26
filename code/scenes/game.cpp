@@ -72,7 +72,7 @@ void switchMap(globals &data) {
 	map.loadTilemap(data.gridSize.x, data.gridSize.y, dataLoc + "tilemap.txt");
 	
 	// Create new player at proper position
-	player = map.place<Player>(playerPos.x, playerPos.y, "box.png");
+	player = map.place<Player>(playerPos.x, playerPos.y, "playerdown.png");
 	
 	// Place consoles per consoles.txt
 	consoles = {};

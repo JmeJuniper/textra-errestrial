@@ -9,7 +9,7 @@
 #include <fstream>
 #include <exception>
 #include <iostream>
-#include "game/tilemapFuncs.hpp"
+#include "game/tilemapUtils.hpp"
 #include "game/objects/Floor.hpp"
 #include "game/objects/Wall.hpp"
 #include "game/objects/Player.hpp"
@@ -41,7 +41,6 @@ void Map::loadTilemap(size_t width, size_t height, std::string filePath)
             // Get the image represented by the current tile
             auto tileData = cttl[tile];
             
-            // TODO: support things that aren't floors. lmao
             // There's probably some better way to do this but :p
             switch (tileData.second)
             {
@@ -70,23 +69,10 @@ void Map::loadTilemap(size_t width, size_t height, std::string filePath)
     tlmpReader.close();
 }
 
-
-// Disable "no return type" warning.
-// The code will already throw an error if no return can be given and there
-// is no reasonable default return that can be given in that event.
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wreturn-type"
-
-std::vector<std::shared_ptr<Object>>&
-Map::getTile(size_t x, size_t y)
+std::vector<std::shared_ptr<Object>>& Map::getTile(size_t x, size_t y)
 {
     return tlmp.at(x).at(y);
 }
-
-// Undisable warning
-#pragma GCC diagnostic pop
-
-
 
 void Map::draw(sf::RenderWindow& window, unsigned int tileSize)
 {

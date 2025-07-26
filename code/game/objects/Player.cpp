@@ -6,10 +6,29 @@
 
 #include "game/objects/Player.hpp"
 #include "game/Map.hpp"
-#include <iostream>
 
 bool Player::tryMove(sf::Vector2i diff)
 {
+    // Set sprite based off of movement direction
+    auto sprPath = [](std::string dir){ return "assets/sprites/player" + dir + ".png"; };
+    bool success;
+    if (diff.y < 0)
+        success = tex.loadFromFile(sprPath("up"));
+    else if (diff.y > 0)
+        success = tex.loadFromFile(sprPath("down"));
+    else
+    {
+        if (diff.x < 0)
+            success = tex.loadFromFile(sprPath("left"));
+        else
+            success = tex.loadFromFile(sprPath("right"));
+    }
+    
+    if (success)
+        spr.setTexture(tex);
+    else
+        throw std::ios_base::failure("Could not load player sprite.");
+    
     // Calculate new position to move to
     auto newPos = pos + diff;
     

@@ -5,8 +5,6 @@
 ******************************************************************************/
 
 #include "game/objects/Console.hpp"
-#include "game/Map.hpp"
-#include <iostream>
 
 bool Console::tryMove(sf::Vector2i diff)
 {

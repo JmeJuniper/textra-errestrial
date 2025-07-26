@@ -2,7 +2,7 @@
  * Floor.hpp
  * Solo header file
  * Class for tiles that do not move nor block movement.
- * Documentation inherits from Object.hpp
+ * Defines Floor class (inherits Object)
 ******************************************************************************/
 
 #ifndef FLOOR_H
@@ -16,8 +16,10 @@
         
         // Inherit constructor
         using Object::Object;
-
-        // tryMove overriden for Floors
+        
+        // Attempts to move in a direction, returns a bool corresponding to success
+		// diff     [Vector2i] - Direction to move in. I.e. {-1, 0} = move 1 to the left.
+		// <-           [bool] - True if object successfully moved, false if not.
         bool tryMove(sf::Vector2i diff) override { return true; }
     };
 #endif

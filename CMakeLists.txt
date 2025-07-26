@@ -40,7 +40,7 @@ add_executable(${PROJECT_NAME}
 	
 	# Helper classes & functions
 	code/menu/MenuItem.cpp
-	code/game/tilemapFuncs.cpp
+	code/game/tilemapUtils.cpp
 )
 file(COPY
 	assets

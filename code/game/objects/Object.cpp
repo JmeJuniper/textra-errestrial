@@ -5,7 +5,6 @@
 ******************************************************************************/
 
 #include "game/objects/Object.hpp"
-#include "game/Map.hpp"
 #include <SFML/Graphics.hpp>
 
 Object::Object
@@ -18,17 +17,7 @@ Object::Object
     spr.setTexture(tex);
 }
 
-bool Object::tryMove(sf::Vector2i diff)
-{
-    sf::Vector2i newPos = pos + diff;
-    bool collides = false;
-    // check collision??
-    if (!collides)
-        pos = newPos;
-    return !collides;
-}
-
-void Object::draw(sf::RenderWindow& window, size_t x, size_t y, unsigned int tileSize)
+void Object::draw(sf::RenderWindow& window, unsigned int tileSize)
 {
     // Resize sprite to be exactly 1 grid size and positioned properly
     spr.setScale(sf::Vector2f(

@@ -1,10 +1,10 @@
 /******************************************************************************
- * tilemapFuncs.cpp
- * Source file for tilemapFuncs.hpp
- * Functions for reading tilemaps and converting them to Maps of Objects.
+ * tilemapUtils.cpp
+ * Source file for tilemapUtils.hpp
+ * Utilities for reading tilemaps and converting them to Maps of Objects.
 ******************************************************************************/
 
-#include "game/tilemapFuncs.hpp"
+#include "game/tilemapUtils.hpp"
 
 std::unordered_map<char, std::pair<std::string, char>> cttl = {
 	// Walls
