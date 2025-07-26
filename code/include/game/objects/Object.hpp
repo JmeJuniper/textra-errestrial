@@ -53,7 +53,7 @@
 		// Attempts to move in a direction, returns a bool corresponding to success
 		// diff           [Vector2i] - Direction to move in. I.e. {-1, 0} = move 1 to the left
 		// <-                 [bool] - True if object successfully moved, false if not
-		virtual bool tryMove(sf::Vector2i diff);
+		virtual bool tryMove(sf::Vector2i diff) { return false; };
 		
 		// Draws the sprite to the window
 		// window [sf::RenderWindow] - Window to draw the object to

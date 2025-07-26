@@ -76,21 +76,12 @@ std::vector<std::shared_ptr<Object>>& Map::getTile(size_t x, size_t y)
 
 void Map::draw(sf::RenderWindow& window, unsigned int tileSize)
 {
-    // Store position in loop
-    size_t x, y;
-
     // Loop through each column in the tilemap (left -> right)
     for (auto& col: tlmp)
-    {
         // Loop through each tile in the column (top -> bottom)
         for (auto& tile: col)
-        {
             // Loop through each object on the tile (bottom -> top)
             for (auto& obj: tile)
                 // Render the object
-                obj -> draw(window, x, y, tileSize);
-            y++;
-        }
-        x++;
-    }
+                obj -> draw(window, tileSize);
 }
