@@ -118,13 +118,13 @@ Scene game(
 			{
 				player -> tryMove({ 0, -1});
 				if (player -> offMap)
-					curMapPos.y -= 1;
+					curMapPos.y += 1;
 			}
 			if (keyEvent -> code == sf::Keyboard::Key::Down)
 			{
 				player -> tryMove({ 0,  1});
 				if (player -> offMap)
-					curMapPos.y += 1;
+					curMapPos.y -= 1;
 			}
 			if (keyEvent -> code == sf::Keyboard::Key::Left)
 			{

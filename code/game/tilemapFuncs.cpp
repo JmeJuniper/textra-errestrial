@@ -16,7 +16,7 @@ std::unordered_map<char, std::pair<std::string, char>> cttl = {
 	{']', {"wall_2_1.png", 'W'}},
 	{'L', {"wall_0_2.png", 'W'}},
 	{'_', {"wall_1_2.png", 'W'}},
-	{'!', {"wall_2_2.png", 'W'}},
+	{'J', {"wall_2_2.png", 'W'}},
 	{'.', {"corner_0_1.png", 'W'}},
 	{',', {"corner_1_1.png", 'W'}},
 	{'=', {"console.png", 'W'}},

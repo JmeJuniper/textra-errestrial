@@ -79,7 +79,20 @@ namespace {
 		{"xsk", "n ysl"}, // I speak nonsense -> No - You speak language
 		{"xsl", "nn"}, // I speak language -> Not untrue
 		{"dme", "n dmf"}, // Door is closed -> No - Door is open
-		{"yhx", "cnhyixhy"} // You help me -> If computer does not help you then I help you
+		{"yhx", "cnhyixhy"}, // You help me -> If computer does not help you then I help you
+		{"d", "dmf ncidme"}, // Door -> Doors are open. Without computer, doors are closed.
+		{"c", "cha ahc"}, // Computer -> Computers help us, we help computers
+		{"b", "bnha apb"}, // Box -> Box not help us, we push boxes
+		{"t", "wt"}, // Room -> Which room?
+		{"s", "s ysx xsy asa"}, // Speech? -> Speech. You speak to me, I speak to you, aliens speak to each other.
+		{"h", "h ah bnh"}, // Help? -> Help. Aliens help. Boxes do not help.
+		{"e", "e de aed ced"}, // Close -> Close. Doors close. Aliens close doors. Computers close doors.
+		{"f", "f df afd cfd"}, // Open -> Open. Doors open. Aliens open doors. Computers open doors.
+		{"ct", "ctiafc"}, // Computer room -> With computer room, we access computers
+		{"ht", "htiaha"}, // Help room -> With help room, we help each other
+		{"bt", "bnha acbt apb"}, // Box room -> Box not help us - We close box room - We push boxes
+		{"st", "stniynsx"}, // Speech room -> Without speech room, you could not speak to me
+		{"at", "atmh"} // Alien room -> Alien room is helpful.
 	};
 	
 	// Phrase said to recieve help and win the game

@@ -1,0 +1,15 @@
+5 3 shhhhhhhh
+6 3 shhhhhhhh
+7 3 shhhhhhhh
+8 3 shhhhhhhh
+9 3 shhhhhhhh
+5 4 shhhhhhhh
+6 4 shhhhhhhh
+7 4 shhhhhhhh
+8 4 shhhhhhhh
+9 4 shhhhhhhh
+5 5 shhhhhhhh
+6 5 shhhhhhhh
+7 5 shhhhhhhh
+8 5 shhhhhhhh
+9 5 shhhhhhhh
