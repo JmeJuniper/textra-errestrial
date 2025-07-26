@@ -20,6 +20,12 @@ namespace {
     Sprite background(menuImage);
 
     Text pausedTitle(TEKTUR, "PAUSED");
+    Text introLine(TEKTUR,
+        "You've found yourself on an alien ship, with no recollection of why.\n"
+        "Figure out the language using clues to determine what the glyphs mean.\n"
+        "Learn how to call for help.\n"
+        "Escape."
+    ); 
     Text controlsTitle(TEKTUR, "CONTROLS:");
     Text controls(TEKTUR,
         "Arrow Keys - Move Around\n"
@@ -61,7 +67,7 @@ Scene pause(
 
         // Transparent
         background.setColor(Color(255, 255, 255, 100));  
-
+        
         // Title setup
         pausedTitle.setCharacterSize(40);
         pausedTitle.setFillColor(Color::White);
@@ -70,18 +76,23 @@ Scene pause(
         pausedTitle.setStyle(Text::Bold);
         pausedTitle.setPosition({data.windowSize.x/2 - pausedTitle.getGlobalBounds().size.x/2, 100});
         
+        // Intro setup
+        introLine.setCharacterSize(15);
+        introLine.setFillColor(Color::White);
+        introLine.setPosition({data.windowSize.x/2 - introLine.getGlobalBounds().size.x/2, 150});
+        
         // Controls Title
         controlsTitle.setCharacterSize(28);
         controlsTitle.setFillColor(Color::White);
         controlsTitle.setOutlineColor(Color::Black);
         controlsTitle.setOutlineThickness(2);
         controlsTitle.setStyle(Text::Bold);
-        controlsTitle.setPosition({data.windowSize.x/2 - controlsTitle.getGlobalBounds().size.x/2, 250});
-
+        controlsTitle.setPosition({data.windowSize.x/2 - controlsTitle.getGlobalBounds().size.x/2, 260});
+        
         // Control details
         controls.setCharacterSize(22);
         controls.setFillColor(Color::White);
-        controls.setPosition({data.windowSize.x/2 - controls.getGlobalBounds().size.x/2, 300});
+        controls.setPosition({data.windowSize.x/2 - controls.getGlobalBounds().size.x/2, 310});
     },
 
     // Renderer
@@ -91,6 +102,7 @@ Scene pause(
 
         window.draw(background);
         window.draw(pausedTitle);
+        window.draw(introLine);
         window.draw(controlsTitle);
         window.draw(controls);
 
