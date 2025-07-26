@@ -51,32 +51,34 @@ namespace {
 	
 	// Messages the player can send paired with responces
 	const std::unordered_map<std::string, std::string> getResponce = {
-		{"ymw", "xma"}, // You are what -> I am alien
+		{"ymw", "n xma"}, // You are what -> No - I am alien
 		{"yma", "nn"}, // You are alien -> Not untrue
-		{"ymna", "xma"}, // You are not alien -> I am alien
-		{"ynma", "xma"}, // You not are alien -> I am alien
+		{"ymna", "n xma"}, // You are not alien -> No - I am alien
+		{"ynma", "n xma"}, // You not are alien -> No - I am alien
 		{"xmw", "ymna"}, // I am what -> You are not alien
-		{"xma", "ymna"}, // I am alien -> You are not alien
+		{"xma", "n ymna"}, // I am alien -> No - You are not alien
 		{"xmna", "nn"}, // I am not alien -> Not untrue
 		{"xnma", "nn"}, // I not am alien -> Not untrue
 		{"bmw", "bmb"}, // Box is what -> Box is box
 		{"bmow", "bmobt"}, // Box is owned by what -> Box is owned by box storage
 		{"chx", "cmh"}, // Computer helped me -> Computer is helpful
-		{"xsc", "yscsx"}, // I speak to computer -> You speak to computer speak to me
-		{"xsy", "yscsx"}, // I speak to you -> You speak to computer speak to me
-		{"ysx", "xscsy"}, // You speak to me -> I speak to computer speak to you
-		{"ysc", "xscsy"}, // You speak to computer -> I speak to computer speak to you
-		{"cma", "cnma"}, // Computer is alien -> Computer not is alien
-		{"cmb", "cnmb"}, // Computer is box -> Computer not is box
-		{"cmy", "xscnmx"}, // Computer is you -> I speak to computer not is me
-		{"bma", "bnma"}, // Box is alien -> Box not is alien
-		{"bmc", "bnmc"}, // Box is computer -> Box not is computer
-		{"bmy", "bnmx"}, // Box is you -> Box not is me
-		{"ysk", "xsl"}, // You speak nonsense -> No - I speak language
+		{"cmh", "nn"}, // Computer is helpful -> Not untrue
+		{"xsc", "nn ysc csx"}, // I speak to computer -> Not untrue - You speak to computer - Computer speaks to me
+		{"xsy", "nn ysc csx"}, // I speak to you -> Not untrue - You speak to computer - Computer speaks to me
+		{"ysx", "nn xsc csy"}, // You speak to me -> Not untrue - I speak to computer - Computer speaks to you
+		{"ysc", "nn xsc csy"}, // You speak to computer -> Not untrue - I speak to computer - Computer speaks to you
+		{"cma", "n cnma"}, // Computer is alien -> No - Computer not is alien
+		{"cmb", "n cnmb"}, // Computer is box -> No - Computer not is box
+		{"cmy", "n xsc cnmx"}, // Computer is you -> No - I speak to computer - Computer not is me
+		{"bma", "n bnma"}, // Box is alien -> No - Box not is alien
+		{"bmc", "n bnmc"}, // Box is computer -> No - Box not is computer
+		{"bmy", "n bnmx"}, // Box is you -> No - Box not is me
+		{"ysk", "n xsl"}, // You speak nonsense -> No - I speak language
+		{"ysw", "xsl"}, // You speak what -> I speak language
 		{"ysl", "nn"}, // You speak language -> Not untrue
-		{"xsk", "ysl"}, // I speak nonsense -> No - You speak language
+		{"xsk", "n ysl"}, // I speak nonsense -> No - You speak language
 		{"xsl", "nn"}, // I speak language -> Not untrue
-		{"dme", "dmf"}, // Door is closed -> Door is open
+		{"dme", "n dmf"}, // Door is closed -> No - Door is open
 		{"yhx", "cnhyixhy"} // You help me -> If computer does not help you then I help you
 	};
 	
@@ -120,7 +122,7 @@ void updResponce(globals& data, std::string newVal)
 {
 	responce = newVal;
 	responceTxt.setString(responce);
-	responceTxt.setPosition({data.windowSize.x - responceTxt.getGlobalBounds().size.x - 20, 20});
+	responceTxt.setPosition({data.windowSize.x - responceTxt.getGlobalBounds().size.x - 30, 20});
 }
 
 Scene comms(
@@ -158,6 +160,8 @@ Scene comms(
 	// Scene enter
 	[](globals& data, RenderWindow& window)
 	{
+		keys = {};
+		
 		// Create glyph input keys
 		int x = 25, y = 300;
 		for (char l: glyphs)
