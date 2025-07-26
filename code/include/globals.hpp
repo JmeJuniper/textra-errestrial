@@ -13,6 +13,7 @@
     // Struct to store global data
     struct globals {
         std::string curScene;
+        std::string returnFromPause;
         sf::Vector2u windowSize;
         sf::Vector2i gridSize;
         int tileSize;

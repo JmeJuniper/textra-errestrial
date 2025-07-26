@@ -50,7 +50,7 @@ int main()
     };
     
     string activeScene = "";
-
+    
     // Create window
     RenderWindow window(
         VideoMode(data.windowSize),     // Window resolution
@@ -75,9 +75,17 @@ int main()
         {
             // If it's a closure event, close the window
             if (event -> is<Event::Closed>())
-            {
                 window.close();
-            }
+            
+            // If escape key pressed
+            else if (const auto* keyEvent = event -> getIf<Event::KeyPressed>())
+                if (keyEvent -> code == Keyboard::Key::Escape)
+                {
+                    // Switch to pause scene, and mark current scene to be returned to from the pause menu resume button
+                    if (activeScene != "pause")
+                        data.returnFromPause = activeScene;
+                    data.curScene = "pause";
+                }
             
             // Otherwise, send it to the current scene
             scenes[activeScene].handleInput(data, window, *event);

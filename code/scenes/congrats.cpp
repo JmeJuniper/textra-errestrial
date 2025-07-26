@@ -23,7 +23,7 @@ namespace {
 
     MenuItem creditsBtn( // i think i did this right? tried copying the credits one
         "View Credits",
-        250, 550,  //FIXME POTENTIAL JUST GUESSING FOR NOW
+        220, 550,
         TEKTUR,
         [](globals& data, RenderWindow& window){ data.curScene = "credits"; }
     );

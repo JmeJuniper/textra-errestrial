@@ -95,6 +95,7 @@ Scene menu(
                 TEKTUR,
                 [](globals &data, RenderWindow &window)
                 {
+                    data.returnFromPause = "menu";
                     data.curScene = "pause"; //pause menu has controls
                 }
             ),
